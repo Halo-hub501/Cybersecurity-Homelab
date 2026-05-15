@@ -51,7 +51,11 @@ Two implementations, built from Python's standard library only (zero installs):
 - **`my_cipher.py`** — A Caesar cipher built from scratch. Encrypts `HELLO` → `KHOOR` by shifting each letter by a secret key, then reverses the process to decrypt. Includes a brute-force attacker that breaks the cipher by trying all 25 possible keys — proving why small keyspaces are unsafe.
 - **`encrypt_decrypt.py`** — A more advanced stream cipher that maps every box in the ISC2 diagram to a function: PBKDF2 key derivation, salt + nonce as cryptovariables, keystream XOR as the algorithm, HMAC as the integrity tag.
 
-**📷 See:** [`screenshots/phase-1-caesar-cipher-working.png`](screenshots/phase-1-caesar-cipher-working.png) and [`screenshots/phase-1-brute-force-attack.png`](screenshots/phase-1-brute-force-attack.png)
+**📸 Live demo — wrong-key attack and full brute-force:**
+
+![Phase 1 brute-force attack: every key from 1 to 25 is tried, Key 3 reveals HELLO](screenshots/phase-1-brute-force-attack.png)
+
+The attacker doesn't have to *guess* — they just try all 25 keys and read down the list. Key 3 reveals the answer (`HELLO`). This is exactly why the Caesar cipher is unsafe: the keyspace is too small to resist brute force, and a computer does it in a fraction of a second.
 
 ### Phase 2 — Real Crypto (AES) ✅
 
@@ -66,7 +70,11 @@ Two implementations, built from Python's standard library only (zero installs):
 
 The contrast with Phase 1 teaches **why "don't roll your own crypto" is a security rule**, not a stylistic preference.
 
-**📷 See:** [`screenshots/phase-2-aes-encrypt-decrypt.png`](screenshots/phase-2-aes-encrypt-decrypt.png) and [`screenshots/phase-2-tamper-detection.png`](screenshots/phase-2-tamper-detection.png)
+**📸 Live demo — every run produces a different key and ciphertext, but the same plaintext recovers cleanly:**
+
+![Phase 2 AES encryption: multiple runs each show a different Key and Ciphertext while the Plaintext always decrypts back to the original message](screenshots/phase-2-aes-multiple-runs.png)
+
+Notice how the **Key** and **Ciphertext** change with every run — that's `Fernet.generate_key()` producing fresh randomness and the cryptovariables (salt + nonce) doing their job. The **Plaintext** always recovers correctly because the same key encrypts and decrypts within each run. This is real AES — 2²⁵⁶ possible keys instead of 25, making the Phase 1 brute-force attack mathematically impossible.
 
 ### File Integrity Monitor ✅
 
@@ -87,7 +95,11 @@ The contrast with Phase 1 teaches **why "don't roll your own crypto" is a securi
 
 **Demonstrates the avalanche effect** — changing one byte produces a completely different fingerprint, which is what makes hash-based detection reliable.
 
-**📷 See:** [`screenshots/fim-baseline-and-alert.png`](screenshots/fim-baseline-and-alert.png) — shows three runs: baseline created → OK status → ALERT after tampering
+**📸 Live demo — baseline → unchanged → ALERT → modified → restored:**
+
+![File Integrity Monitor showing the full detection workflow: baseline creation, OK status when unchanged, ALERT when modified, and restoration back to OK](screenshots/fim-baseline-and-alert.png)
+
+Read it top-to-bottom: the **avalanche effect** at the top (one tiny edit produces a completely different fingerprint), then **baseline created**, then **STATUS: OK** when nothing has changed, then **STATUS: ALERT — FILE HAS BEEN MODIFIED!** the moment the file is tampered with. Same logic SOC analysts rely on every day to catch ransomware, web defacement, and unauthorized config changes.
 
 ---
 
