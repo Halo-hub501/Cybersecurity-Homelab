@@ -29,19 +29,6 @@ A hands-on cryptography lab that **builds, breaks, then properly secures** an en
 
 ---
 
-### ☁️ [AWS Cloud-Native Security Lab](aws-cloud-security-lab/) — Purple-Team Cloud Defense
-
-A free-tier purple-team lab demonstrating **real AWS attack paths and the cloud-native detections that catch them.** Beyond classroom exercises — every scenario is executed in a live AWS environment with logs captured, detections written, and findings documented to mirror real SOC analyst work.
-
-- **Phase 1** 🔄 Foundation & safety setup (AWS account hardened, CLI configured, CloudTrail enabled)
-- **Phases 2-5** ⬜ Vulnerable infra → detection stack → 8 paired attack/detect scenarios → polish
-
-**Skills demonstrated (planned):** AWS IAM/S3/EC2/Lambda, CloudTrail, GuardDuty, AWS Config, Security Hub, EventBridge, MITRE ATT&CK Cloud Matrix, attack tooling (Pacu, ScoutSuite, Prowler), Terraform.
-
-→ **[See full writeup and architecture](aws-cloud-security-lab/)**
-
----
-
 ## 💡 Why "Home Lab"?
 
 Most entry-level cybersecurity candidates have the same résumé: a few certificates, some Coursera assignments, maybe a TryHackMe room. That's table stakes — it doesn't differentiate.
