@@ -76,7 +76,7 @@ On the dashboard (**Security Events**, filtered to the victim):
 - **Authentication failure** counter jumped **2 → 17**
 - **Top MITRE ATT&CK** now shows **Brute Force** and **Password Guessing** — that's **MITRE T1110**
 
-📸 `phase-4-bruteforce-detection.png`
+![Brute-force detection — authentication failures spike](../screenshots/phase-4-bruteforce-detection.png)
 
 | Rule | Meaning | Level |
 |---|---|---|
@@ -119,12 +119,28 @@ A detection isn't the end; an analyst **scopes and attributes** it. By building 
 ---
 
 ## 🖼️ Screenshots
-_Add to `../screenshots/`:_
-- `phase-4-nmap-scan.png`
-- `phase-4-rdp-enabled.png`
-- `phase-4-hydra-attack.png`
-- `phase-4-bruteforce-detection.png` — the MITRE Brute Force detection on the dashboard
-- `phase-4-source-ip-attribution.png` — the source-IP bar chart
+
+**The detection rule that caught the attack** — Wazuh rule `60204`, *"Multiple Windows Logon Failures"* (level 10). It fires when many `authentication_failed` events share the **same `win.eventdata.ipAddress`** within a **240-second** window — exactly the signature of a brute-force:
+
+![Brute-force detection rule 60204](../screenshots/phase-4-bruteforce-rule.png)
+
+<details><summary>More evidence views</summary>
+
+Security-alerts timeline (endpoint events):
+
+![Security alerts](../screenshots/phase-4-security-alerts.png)
+
+Raw events explorer (702 events over 30 days):
+
+![Events explorer](../screenshots/phase-4-events-raw.png)
+
+Related Windows-security rules — the building blocks of the correlation (60105 *logon failure* → 60204):
+
+![Related rules](../screenshots/phase-4-bruteforce-rule-related.png)
+
+</details>
+
+> _To add later (captured from the Kali VM):_ `phase-4-nmap-scan.png`, `phase-4-hydra-attack.png`, and the source-IP attribution chart.
 
 ---
 

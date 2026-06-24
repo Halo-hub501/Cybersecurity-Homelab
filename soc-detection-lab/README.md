@@ -8,6 +8,10 @@ This lab is a **functioning purple-team environment** running on a single workst
 
 If you're a recruiter or hiring manager: **this lab demonstrates I can do the job before someone hires me to do it.** I'm not running a TryHackMe room — I'm running the platform.
 
+**The payoff** — a real RDP brute-force launched from Kali, detected and classified by my SIEM as **MITRE ATT&CK T1110**:
+
+![Brute-force detected in Wazuh](screenshots/phase-4-bruteforce-detection.png)
+
 ---
 
 ## 🧱 The Lab

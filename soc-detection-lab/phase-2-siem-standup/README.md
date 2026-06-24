@@ -159,6 +159,24 @@ Spend ten minutes clicking around before you touch Phase 3. Here's what to find 
 
 ---
 
+## 🖼️ Screenshots
+
+**The Wazuh dashboard — the SIEM online:**
+
+![Wazuh dashboard](../screenshots/phase-2-wazuh-dashboard.png)
+
+**The detection engine — 4,372 built-in rules** out of the box (MITRE ATT&CK mapped):
+
+![Wazuh rules engine](../screenshots/phase-2-rules-engine.png)
+
+<details><summary>Regulatory compliance modules (PCI DSS, NIST 800-53, HIPAA, GDPR, TSC)</summary>
+
+![Compliance modules](../screenshots/phase-2-compliance-modules.png)
+
+</details>
+
+---
+
 ## ➡️ When this phase is done
 
 Drop the dashboard screenshot in `screenshots/` and move to **Phase 3 — Endpoint Telemetry**: installing Sysmon and the Wazuh agent on the Windows 10 VM, and watching the first real events stream into the Security events page you just toured.
