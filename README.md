@@ -29,6 +29,25 @@ A hands-on cryptography lab that **builds, breaks, then properly secures** an en
 
 ---
 
+### 🛡️ [SOC Detection Lab](soc-detection-lab/) — A Working SIEM, Real Attacks, Custom Detection Rules
+
+A self-built **purple-team environment**: Kali attacker, Windows 11 endpoint with Sysmon, and a Wazuh SIEM — all running on an isolated host-only network. I run real attacks and investigate the detections they trigger.
+
+- **Phase 1** ✅ Lab foundation — three VMs (Ubuntu, Windows 11, Kali) on an isolated network in VirtualBox
+- **Phase 2** ✅ Wazuh SIEM stand-up, hardening, and air-gap verification
+- **Phase 3** ✅ Wazuh agent + Sysmon shipping endpoint telemetry to the SIEM
+- **Phase 4** ✅ First detection — Nmap recon (a real detection gap) + Hydra RDP brute-force → **MITRE T1110** alert → source-IP attribution
+- **Phase 5** ⏳ Custom Wazuh detection rules + false-positive tuning
+- **Phase 6** ✅ Analyst-style incident writeup of the brute-force (summary, timeline, evidence, impact, response)
+
+**Skills demonstrated:** SIEM operations (Wazuh), endpoint telemetry (Sysmon), detection engineering, MITRE ATT&CK mapping, adversary emulation (Nmap, Hydra), Windows event-log investigation & attack attribution, VM/network isolation, incident documentation.
+
+**Tied to:** Google Cybersecurity Certificate — Module 6 (Detection & Response); ISC2 CC Domain 5 (Security Operations).
+
+→ **[Explore the lab — architecture and all phase walkthroughs](soc-detection-lab/)**
+
+---
+
 ## 💡 Why "Home Lab"?
 
 Most entry-level cybersecurity candidates have the same résumé: a few certificates, some Coursera assignments, maybe a TryHackMe room. That's table stakes — it doesn't differentiate.

@@ -1,0 +1,2 @@
+This is a sample text file.
+We will encrypt this file as a test.
