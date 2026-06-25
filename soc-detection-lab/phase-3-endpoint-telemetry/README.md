@@ -99,21 +99,21 @@ The NAT adapter (used only for the installer download) was **disabled again** in
 
 **Agent connected and Active** (`DESKTOP-2RCF6KO`, v4.7.5, `192.168.56.102`, 100% coverage):
 
-![Wazuh agent Active](../screenshots/phase-3-agent-active.png)
+![Wazuh agent Active](phase-3-agent-active.png)
 
 **The agent's own dashboard** — MITRE tactics, PCI compliance, FIM events, and the CIS benchmark score, all scoped to this endpoint:
 
-![Agent dashboard](../screenshots/phase-3-agent-dashboard.png)
+![Agent dashboard](phase-3-agent-dashboard.png)
 
 **Inventory — 43 open network ports mapped to their processes.** This is host-level visibility a network scan can't get (see Phase 4):
 
-![Inventory ports](../screenshots/phase-3-inventory.png)
+![Inventory ports](phase-3-inventory.png)
 
 <details><summary>More inventory views (network settings, packages)</summary>
 
-![Network settings & Windows updates](../screenshots/phase-3-inventory-network.png)
+![Network settings & Windows updates](phase-3-inventory-network.png)
 
-![Installed packages](../screenshots/phase-3-inventory-packages.png)
+![Installed packages](phase-3-inventory-packages.png)
 
 </details>
 

@@ -117,7 +117,7 @@ Log in with `admin` + the password from Step 2.
 2. VirtualBox → Settings → Network → **disable Adapter 2 (NAT)**.
 3. Boot Ubuntu back up.
 4. Reload `https://192.168.56.101` from your host browser — it should still load (host-only traffic doesn't need NAT).
-5. **Screenshot the Wazuh dashboard home page** showing 0 agents connected. Save as `../screenshots/phase-2-wazuh-dashboard.png`.
+5. **Screenshot the Wazuh dashboard home page** showing 0 agents connected. Save it in this phase folder as `phase-2-wazuh-dashboard.png`.
 
 ---
 
@@ -144,7 +144,7 @@ Spend ten minutes clicking around before you touch Phase 3. Here's what to find 
 - [ ] All three services (`wazuh-manager`, `wazuh-indexer`, `wazuh-dashboard`) are `active (running)`
 - [ ] You can hit `https://<ubuntu-ip>` from your host browser and log in as `admin`
 - [ ] Ubuntu VM's NAT adapter is **disabled** again — lab is isolated
-- [ ] Screenshot of the dashboard home (0 agents) saved as `screenshots/phase-2-wazuh-dashboard.png`
+- [ ] Screenshot of the dashboard home (0 agents) saved in this phase folder as `phase-2-wazuh-dashboard.png`
 - [ ] You've clicked through Agents, Security events, Rules, and Decoders so the layout isn't a mystery in Phase 3
 
 ---
@@ -163,15 +163,15 @@ Spend ten minutes clicking around before you touch Phase 3. Here's what to find 
 
 **The Wazuh dashboard — the SIEM online:**
 
-![Wazuh dashboard](../screenshots/phase-2-wazuh-dashboard.png)
+![Wazuh dashboard](phase-2-wazuh-dashboard.png)
 
 **The detection engine — 4,372 built-in rules** out of the box (MITRE ATT&CK mapped):
 
-![Wazuh rules engine](../screenshots/phase-2-rules-engine.png)
+![Wazuh rules engine](phase-2-rules-engine.png)
 
 <details><summary>Regulatory compliance modules (PCI DSS, NIST 800-53, HIPAA, GDPR, TSC)</summary>
 
-![Compliance modules](../screenshots/phase-2-compliance-modules.png)
+![Compliance modules](phase-2-compliance-modules.png)
 
 </details>
 
@@ -179,4 +179,4 @@ Spend ten minutes clicking around before you touch Phase 3. Here's what to find 
 
 ## ➡️ When this phase is done
 
-Drop the dashboard screenshot in `screenshots/` and move to **Phase 3 — Endpoint Telemetry**: installing Sysmon and the Wazuh agent on the Windows 10 VM, and watching the first real events stream into the Security events page you just toured.
+Drop the dashboard screenshot in this phase folder and move to **Phase 3 — Endpoint Telemetry**: installing Sysmon and the Wazuh agent on the Windows 11 VM, and watching the first real events stream into the Security events page you just toured.

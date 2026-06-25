@@ -151,7 +151,7 @@ ping 8.8.8.8           # should TIME OUT — this proves NAT is off and the lab 
 - [ ] Each VM can ping the other two
 - [ ] None of the VMs can ping `8.8.8.8` (proves isolation)
 
-**Take a screenshot of the three terminals/PowerShell windows side by side showing successful inter-VM pings and a timed-out `ping 8.8.8.8`.** That's the artifact for this phase. Drop it in `../screenshots/phase-1-isolation-proof.png`.
+**Take a screenshot of the three terminals/PowerShell windows side by side showing successful inter-VM pings and a timed-out `ping 8.8.8.8`.** That's the artifact for this phase. Drop it in this phase folder as `phase-1-isolation-proof.png`.
 
 ---
 
@@ -166,4 +166,4 @@ ping 8.8.8.8           # should TIME OUT — this proves NAT is off and the lab 
 
 ## ➡️ When this phase is done
 
-Drop the screenshot in `screenshots/` and we'll move to **Phase 2 — SIEM Stand-up**: installing Wazuh on the Ubuntu VM and getting the dashboard online.
+Drop the screenshot in this phase folder and we'll move to **Phase 2 — SIEM Stand-up**: installing Wazuh on the Ubuntu VM and getting the dashboard online.

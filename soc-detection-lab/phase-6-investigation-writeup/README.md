@@ -50,11 +50,11 @@ The Wazuh SIEM detected a **brute-force authentication attack** against the Wind
 
 **Detection (dashboard view)** — the authentication-failure spike and MITRE Brute Force classification:
 
-![Brute-force detection](../screenshots/phase-4-bruteforce-detection.png)
+![Brute-force detection](../phase-4-first-detection/phase-4-bruteforce-detection.png)
 
 **The correlation rule (60204)** that fired — multiple `authentication_failed` events from the **same source IP** within 240 seconds:
 
-![Detection rule 60204](../screenshots/phase-4-bruteforce-rule.png)
+![Detection rule 60204](../phase-4-first-detection/phase-4-bruteforce-rule.png)
 
 **Attribution:** source-IP breakdown of the failed logons isolates the hostile host **`192.168.56.104`** (the Kali attacker) from benign local activity. _(Source-IP visualization screenshot to be added.)_
 

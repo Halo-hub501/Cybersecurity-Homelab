@@ -10,7 +10,7 @@ If you're a recruiter or hiring manager: **this lab demonstrates I can do the jo
 
 **The payoff** — a real RDP brute-force launched from Kali, detected and classified by my SIEM as **MITRE ATT&CK T1110**:
 
-![Brute-force detected in Wazuh](screenshots/phase-4-bruteforce-detection.png)
+![Brute-force detected in Wazuh](phase-4-first-detection/phase-4-bruteforce-detection.png)
 
 ---
 
