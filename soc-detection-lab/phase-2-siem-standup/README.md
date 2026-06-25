@@ -119,6 +119,10 @@ Log in with `admin` + the password from Step 2.
 4. Reload `https://192.168.56.101` from your host browser — it should still load (host-only traffic doesn't need NAT).
 5. **Screenshot the Wazuh dashboard home page** showing 0 agents connected. Save it in this phase folder as `phase-2-wazuh-dashboard.png`.
 
+This is the SIEM online with **zero agents** — a clean console waiting for endpoints to report in:
+
+![Wazuh dashboard — the SIEM online, 0 agents](phase-2-wazuh-dashboard.png)
+
 ---
 
 ## 🔍 The 10-minute dashboard tour
@@ -135,6 +139,18 @@ Spend ten minutes clicking around before you touch Phase 3. Here's what to find 
 | **☰ → Management → Configuration** | `ossec.conf` viewer | The manager's master config. Read-only here; edited via SSH. |
 
 > 💡 Bookmark the **Security events** page. That's the analyst's default view and you'll come back to it constantly.
+
+Open **☰ → Management → Rules** and you'll see why Wazuh earns its place out of the box — **thousands of detection rules shipped by default**, each with a rule ID, a level, and (often) a MITRE ATT&CK technique. This is the engine that turns raw logs into the alerts you'll triage:
+
+![Wazuh rules engine — thousands of built-in rules](phase-2-rules-engine.png)
+
+<details><summary>Regulatory compliance modules (PCI DSS, NIST 800-53, HIPAA, GDPR, TSC)</summary>
+
+Wazuh also tags events against compliance frameworks — handy when an auditor asks "show me your control coverage":
+
+![Compliance modules](phase-2-compliance-modules.png)
+
+</details>
 
 ---
 
@@ -156,24 +172,6 @@ Spend ten minutes clicking around before you touch Phase 3. Here's what to find 
 - **Browser can reach `https://192.168.56.101` but the page hangs forever.** `wazuh-dashboard` takes 60–90 seconds to fully start after a reboot. Give it a minute, then refresh. If it's still down: `sudo systemctl restart wazuh-dashboard`.
 - **"I lost the admin password."** SSH to the Ubuntu VM and run `sudo /usr/share/wazuh-indexer/plugins/opensearch-security/tools/wazuh-passwords-tool.sh -au admin -ap NEWPASSWORDHERE`. (Use a strong password — even on a lab, build the habit.)
 - **Cert warning every time you open the dashboard.** Expected. Self-signed certs. You can import the cert into your browser's trust store if it bothers you, but it's not required for the lab.
-
----
-
-## 🖼️ Screenshots
-
-**The Wazuh dashboard — the SIEM online:**
-
-![Wazuh dashboard](phase-2-wazuh-dashboard.png)
-
-**The detection engine — 4,372 built-in rules** out of the box (MITRE ATT&CK mapped):
-
-![Wazuh rules engine](phase-2-rules-engine.png)
-
-<details><summary>Regulatory compliance modules (PCI DSS, NIST 800-53, HIPAA, GDPR, TSC)</summary>
-
-![Compliance modules](phase-2-compliance-modules.png)
-
-</details>
 
 ---
 

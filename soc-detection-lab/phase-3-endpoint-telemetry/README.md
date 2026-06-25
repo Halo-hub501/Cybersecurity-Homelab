@@ -68,9 +68,28 @@ On the dashboard: **☰ → Agents**. The endpoint appears as **Active** 🟢 wi
 | Version | `v4.7.5` (matches the manager ✅) |
 | Status | **active** 🟢 |
 
+![Wazuh agent Active in the dashboard](phase-3-agent-active.png)
+
 **Event volume jumped from ~19 to ~450** the moment the agent connected — that spike *is* the victim's telemetry flowing in.
 
-### Step 5 — Re-isolate the victim
+### Step 5 — Explore what the agent now sees
+With the endpoint reporting, its own dashboard fills in — MITRE tactics, PCI/CIS compliance posture, FIM events, and a security score, all scoped to this one machine. This is the per-endpoint view an analyst opens the moment an alert names a host:
+
+![The agent's own dashboard](phase-3-agent-dashboard.png)
+
+The **Inventory** tab proves the agent has deep host visibility — here, **43 open network ports mapped to the exact process** holding each one. A scan from outside the host can't see this, and that contrast is the whole lesson of Phase 4:
+
+![Inventory — open ports mapped to processes](phase-3-inventory.png)
+
+<details><summary>More inventory views (network settings, installed packages)</summary>
+
+![Network settings & Windows updates](phase-3-inventory-network.png)
+
+![Installed packages](phase-3-inventory-packages.png)
+
+</details>
+
+### Step 6 — Re-isolate the victim
 The NAT adapter (used only for the installer download) was **disabled again** in VirtualBox → Settings → Network → Adapter 2. The agent reconnects over host-only, so it stays Active — but the victim now has **no internet path**, which is the posture we want before running attacks.
 
 ---
@@ -92,30 +111,6 @@ The NAT adapter (used only for the installer download) was **disabled again** in
 - [x] Event volume increased sharply (≈19 → ≈450) once connected
 - [x] Sysmon telemetry confirmed flowing (process/network/file events visible)
 - [x] Victim **re-isolated** (NAT disabled) — monitored but air-gapped
-
----
-
-## 🖼️ Screenshots
-
-**Agent connected and Active** (`DESKTOP-2RCF6KO`, v4.7.5, `192.168.56.102`, 100% coverage):
-
-![Wazuh agent Active](phase-3-agent-active.png)
-
-**The agent's own dashboard** — MITRE tactics, PCI compliance, FIM events, and the CIS benchmark score, all scoped to this endpoint:
-
-![Agent dashboard](phase-3-agent-dashboard.png)
-
-**Inventory — 43 open network ports mapped to their processes.** This is host-level visibility a network scan can't get (see Phase 4):
-
-![Inventory ports](phase-3-inventory.png)
-
-<details><summary>More inventory views (network settings, packages)</summary>
-
-![Network settings & Windows updates](phase-3-inventory-network.png)
-
-![Installed packages](phase-3-inventory-packages.png)
-
-</details>
 
 ---
 
